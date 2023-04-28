@@ -8,8 +8,6 @@ import {
 } from 'typeorm'
 import { AccountType, Role } from './types.js'
 
-// import { Role, Language } from './types';
-
 @Entity('user')
 export class UserEntity {
 	@PrimaryGeneratedColumn()
@@ -20,13 +18,13 @@ export class UserEntity {
 	})
 	email: string
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	password: string
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	first_name: string
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	last_name: string
 
 	@Column({ default: false })
@@ -56,22 +54,22 @@ export class UserEntity {
 	@Column({ default: 'trial' })
 	subscription: string
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	subscription_id: string
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	subscription_plan_id: string
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	subscription_payment_id: string
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	next_bill_date: Date
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	user_id: number
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	picture: string
 
 	@Column({ default: 0 })
@@ -84,24 +82,4 @@ export class UserEntity {
 	checkIfPasswordMatch(unencryptedPassword: string) {
 		return bcrypt.compareSync(unencryptedPassword, this.password)
 	}
-
-	//   @Column({
-	//     default: 'STANDARD' as Role,
-	//     length: 30,
-	//   })
-	//   role: string;
-
-	//   @Column({
-	//     default: 'en-US' as Language,
-	//     length: 15,
-	//   })
-	//   language: string;
-
-	//   setLanguage(language: Language) {
-	//     this.language = language;
-	//   }
-
-	//   checkIfPasswordMatch(unencryptedPassword: string) {
-	//     return bcrypt.compareSync(unencryptedPassword, this.password);
-	//   }
 }
